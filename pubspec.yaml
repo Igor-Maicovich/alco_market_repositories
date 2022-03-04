@@ -1,0 +1,28 @@
+name: alco_market_repositories
+description: Repositories for AlcoMarket
+version: 0.0.1
+homepage:
+publish_to: none
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ^3.1.10
+  firebase_core: ^1.13.1
+  uuid: ^3.0.6
+  alco_market_models:
+    git:
+      url: git://github.com/Igor-Maicovich/alco_market_models.git
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+
