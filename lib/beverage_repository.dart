@@ -15,6 +15,15 @@ class BeverageRepository {
     return snapshot.docs.map((doc) => Beverage.fromJson(doc.data())).toList();
   }
 
+    Future<Beverage?> getBeverageById(String id) async {
+    var snapshot = await beveragesCollection.doc(id).get();
+    if (snapshot.exists) {
+      return Beverage.fromJson(snapshot.data()!);
+    }
+    return null;
+  }
+  
+
   Future<void> createCategory(CategoryBeverage category) async {
     return await categoriesCollection.doc(category.id).set(category.toJson());
   }
@@ -40,7 +49,5 @@ class BeverageRepository {
   }
 
   Future<void> deleteBeverage(Beverage beverage) async {
-    await beveragesCollection.doc(beverage.id).delete();
-    return await categoriesCollection.doc(category.id).delete();
-  }
+    return await beveragesCollection.doc(beverage.id).delete();
 }
